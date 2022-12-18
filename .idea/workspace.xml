@@ -1,31 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f352a944-5561-430b-8895-71818c3b384c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Root.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StyledComponents.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Canvas.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Settingbar.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Toolbar.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/custom/debounce.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/canvasState.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/toolState.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tools/Brush.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tools/Circle.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tools/Eraser.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tools/Line.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tools/Rect.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tools/Tool.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.node.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" />
-    </list>
+    <list default="true" id="f352a944-5561-430b-8895-71818c3b384c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,7 +67,7 @@
       <workItem from="1671243108925" duration="380000" />
       <workItem from="1671243513823" duration="21140000" />
       <workItem from="1671333795513" duration="31152000" />
-      <workItem from="1671371835174" duration="5038000" />
+      <workItem from="1671371835174" duration="5355000" />
     </task>
     <servers />
   </component>
