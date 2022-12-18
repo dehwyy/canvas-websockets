@@ -1,12 +1,14 @@
 import {Tool} from "./Tool";
+import {createLogger} from "vite";
+import toolState from "../store/toolState";
 
 export default class Rect extends Tool {
     private mouseDown = false
     private startX = 0;
     private startY = 0;
     private saved = ''
-    constructor(canvas: HTMLCanvasElement) {
-        super(canvas);
+    constructor(canvas: HTMLCanvasElement, socket: WebSocket, id: string) {
+        super(canvas, socket, id);
         this.listen()
     }
 
@@ -26,7 +28,18 @@ export default class Rect extends Tool {
             let posY = e.offsetY
             let width = this.startX - posX
             let height = this.startY - posY
-            this.draw(e.offsetX, e.offsetY, width, height)
+            this.socket?.send(JSON.stringify({
+                method: "draw",
+                id: this.id,
+                figure: {
+                    type: "rect",
+                    x: e.offsetX,
+                    y: e.offsetY,
+                    w: width,
+                    h: height,
+                    savedImg: this.saved
+                }
+            }))
         }
     }
 
@@ -39,22 +52,20 @@ export default class Rect extends Tool {
         this.saved = this.canvas.toDataURL()
     }
 
-    draw(x: number, y: number, w: number | undefined, h: number | undefined) {
+    static draw(savedImg: string, ctx: CanvasRenderingContext2D,  x: number, y: number, w: number | undefined, h: number | undefined) {
         const img = new Image()
-        img.src = this.saved
+        img.src = savedImg
         img.onload = () => {
-            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
-            this.ctx.drawImage(img, 0, 0, this.canvas.width, this.canvas.height)
-            this.ctx.beginPath()
+            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+            ctx.drawImage(img, 0, 0, ctx.canvas.width, ctx.canvas.height)
+            ctx.beginPath()
             if (w && h) {
-                this.ctx.rect(x, y, w, h)
-                this.ctx.fill()
-                this.ctx.stroke()
+                ctx.lineWidth = toolState.getCanvasWidth()
+                ctx.rect(x, y, w, h)
+                ctx.fill()
+                ctx.stroke()
             }
-
         }
-
-
     }
 
 }

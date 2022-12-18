@@ -19,29 +19,41 @@ export interface ITool extends IToolExtension{
 
 class ToolState {
     private toolP: ITool | undefined | null = null
+    private canvasColor: string = "#000000"
+    private canvasWidth: number = 10
+    private canvasOutline: string = "#000000"
     constructor() {
         makeAutoObservable(this)
     }
     setTool(tool: any) {
         this.toolP = tool
-        console.log(this.toolP)
     }
     setCanvasColor(color: string) {
-        console.log(this.toolP, color)
         if (this.toolP) {
             this.toolP.canvasColor = color
+            this.canvasColor = color
         }
+    }
+    getCanvasColor() {
+        return this.canvasColor
     }
     setCanvasWidth(width: number) {
         if (this.toolP) {
             this.toolP.canvasWidth = width
+            this.canvasWidth = width
         }
     }
+    getCanvasWidth() {
+        return this.canvasWidth
+    }
     setCanvasOutline(color: string) {
-        console.log(color)
         if (this.toolP) {
             this.toolP.canvasOutline = color
+            this.canvasOutline = color
         }
+    }
+    getCanvasOutline() {
+        return this.canvasOutline
     }
 
     bindFN(fn: Function) {

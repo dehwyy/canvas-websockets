@@ -1,10 +1,12 @@
 import {makeAutoObservable} from "mobx";
-import canvas from "../components/Canvas";
 
 class CanvasState {
     canvas: HTMLCanvasElement | null = null;
-    undo: string[] = []
-    redo: string[] = []
+    private undo: string[] = []
+    private redo: string[] = []
+    username = ''
+    wb: WebSocket | null = null
+    id: string = ''
     constructor() {
         makeAutoObservable(this)
     }
@@ -50,6 +52,15 @@ class CanvasState {
         if (cnvs) {
             this.undo.push(cnvs.toDataURL())
         }
+    }
+    setUsername(username: string) {
+        this.username = username
+    }
+    setSocket(wb: WebSocket) {
+        this.wb = wb
+    }
+    setCanvasId(id: string) {
+        this.id = id
     }
 }
 

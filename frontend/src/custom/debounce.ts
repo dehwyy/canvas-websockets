@@ -1,6 +1,11 @@
 export default class Debouncer<T> {
     time: ReturnType<typeof setTimeout> | undefined
-    constructor(private ms: number, private debounceHandler: (fnArg: T) => void) {}
+    sideCbs: Function[]
+    constructor(private ms: number,
+                private debounceHandler: (e: T) => void,
+                ...cbs: Function[]) {
+                    this.sideCbs = cbs
+                }
     public debounce(p: T) {
         this.setDeb(p)
     }
@@ -12,6 +17,7 @@ export default class Debouncer<T> {
     private timeout(p: T) {
         return setTimeout(() => {
             this.debounceHandler(p)
+            this.sideCbs.forEach(cb => cb())
         }, this.ms)
     }
 }

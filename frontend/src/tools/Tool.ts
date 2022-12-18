@@ -4,7 +4,9 @@ export class Tool {
     static canvasWidth: number;
     static canvasOutline: string;
     constructor(
-        public canvas: HTMLCanvasElement
+        public canvas: HTMLCanvasElement,
+        public socket: WebSocket | null,
+        public id: string
     ) {
         this.ctx = canvas?.getContext("2d") as CanvasRenderingContext2D
         this.ctx.lineWidth = 10
@@ -19,14 +21,20 @@ export class Tool {
 
     set canvasColor(color: string) {
         this.ctx.fillStyle = color
-        this.canvasOutline = color
+        Tool.canvasColor = color
+    }
+
+    get canvasColor() {
+        return Tool.canvasColor
     }
 
     set canvasWidth(width: number) {
         this.ctx.lineWidth = width
     }
 
+
     set canvasOutline(color: string) {
         this.ctx.strokeStyle = color
     }
+
 }
